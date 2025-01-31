@@ -8,6 +8,8 @@ public class first_step {
         casting();
         primitiveTypesChallenge();
         floatAndDouble();
+        floatingPointChallenge(3);
+        charAndBoolean();
 
     }
 
@@ -95,6 +97,37 @@ public class first_step {
         myFloatNumber = (float) 5.23;
         myDoubleValue = (double )3.25;
         System.out.println("int="+myIntValue+"  float="+myFloatNumber+"  double="+myDoubleValue);
+    }
 
+    public static void floatingPointChallenge(int mypounds){
+        int myIntValue = 5;
+        float myFloatNumber = 5;
+        double myDoubleValue = 5;
+        myIntValue = 5 /2;
+        System.out.println(myIntValue);
+        myFloatNumber = 5 / 2f;
+        System.out.println(myFloatNumber);
+        myDoubleValue = (double) 5 / 2;
+        System.out.println(myDoubleValue);
+        int pounds = mypounds;
+        double kilogram = pounds * 0.45359237;
+        System.out.printf("Your kilograms are: %s%n", kilogram);
+    }
+
+    public static void charAndBoolean(){
+        //char 16 bits
+        char myChar = 'D';
+        System.out.println(myChar);
+        myChar = 'µ';
+        System.out.println(myChar);
+        myChar = '\u0040';
+        System.out.println(myChar);
+        myChar = 64;
+        System.out.println(myChar);
+        myChar = '\u1F4F';
+        System.out.println(myChar);
+        char mySimpleChar = '?', myUnicodeChar = '\u003F', myDecimalChar = 63;
+        System.out.printf("My values are: %s, %s, %s", mySimpleChar, myUnicodeChar, myDecimalChar);
+        boolean myTrueBoolean = true, myFalseboolean = false;
     }
 }
