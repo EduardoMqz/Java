@@ -10,6 +10,7 @@ public class first_step {
         floatAndDouble();
         floatingPointChallenge(3);
         charAndBoolean();
+        stringType();
 
     }
 
@@ -127,7 +128,26 @@ public class first_step {
         myChar = '\u1F4F';
         System.out.println(myChar);
         char mySimpleChar = '?', myUnicodeChar = '\u003F', myDecimalChar = 63;
-        System.out.printf("My values are: %s, %s, %s", mySimpleChar, myUnicodeChar, myDecimalChar);
+        System.out.printf("My values are: %s, %s, %s%n", mySimpleChar, myUnicodeChar, myDecimalChar);
         boolean myTrueBoolean = true, myFalseboolean = false;
+    }
+
+    public static void stringType(){
+        String myString = "This is a string";
+        System.out.printf("My string is equal to '%s'%n", myString);
+        myString = myString + " and this is more";
+        System.out.printf("My string is equal to '%s'%n", myString);
+        myString = "I wish I had \u00241,000,000";
+        System.out.println(myString);
+        String lastString = "10";
+        int myInt = 50;
+        lastString = lastString + myInt;
+        System.out.println(lastString);
+        double doubleNumber = 120.47;
+        lastString = lastString + doubleNumber;
+        System.out.println(lastString);
+        //string are immutable, they cant chage after they are created
+        //StringBuilder is mutable, cant asign a string literal or use the plus operator
+        //it is not a primitive type is a class
     }
 }
