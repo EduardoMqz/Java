@@ -12,6 +12,7 @@ public class first_step {
         charAndBoolean();
         stringType();
         operators();
+        abbreviatingOperators();
 
     }
 
@@ -167,7 +168,18 @@ public class first_step {
         result = 5;
         result = result % 3;
         System.out.println(result);
+    }
 
-
+    public static void abbreviatingOperators(){
+        int result = 1;
+        result = result + 1;
+        System.out.println("Result: " + result);
+        result++;
+        System.out.println("Result: " + result);
+        result -= 1;
+        System.out.println("Result: " + result);
+        int resultChallenge = 10;
+        resultChallenge -= result;
+        System.out.println("Result challenge: " +resultChallenge);
     }
 }
