@@ -11,6 +11,7 @@ public class first_step {
         floatingPointChallenge(3);
         charAndBoolean();
         stringType();
+        operators();
 
     }
 
@@ -149,5 +150,24 @@ public class first_step {
         //string are immutable, they cant chage after they are created
         //StringBuilder is mutable, cant asign a string literal or use the plus operator
         //it is not a primitive type is a class
+    }
+
+    public static void operators(){
+        int result = 1 + 2; //two operators (=, +)
+        int previousResult = result;
+        result = result -1;
+        char charA = 'A'; // char are stored as 2 bytes numbers in memory
+        char charB = 'B';
+        System.out.println(charA + charB);//when you use addition with chars, the n7umbers in memory get addded together
+        System.out.println("" + charA + charB);
+        result = 2;
+        result = result * 10;
+        result = result / 4;
+        //Reminder operator
+        result = 5;
+        result = result % 3;
+        System.out.println(result);
+
+
     }
 }
