@@ -1,4 +1,4 @@
-public class first_step {
+public class I_first_step {
     public static void main(String[] args) throws Exception {
         helloWorld("World");
         variables();
