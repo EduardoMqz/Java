@@ -5,6 +5,8 @@ public class II_expressions_statements {
         statementsWhiteSpace();
         ifThenElseControl();
         ifThenElseChallenge(800);
+        methodCalculateScore(true, 8, 200, 800);
+        System.out.printf("Your final score was %s%n", methodCalculateScore(true, 8, 200, 800));
 
     }
 
@@ -66,10 +68,14 @@ public class II_expressions_statements {
         if (gameOver) {
             finalScore += (levelCompleted * bonus);
             System.out.printf("Your final score was %s%n", finalScore);
-            
         }
-        
     }
 
+    public static int methodCalculateScore(boolean gameOver, int levelCompleted, int bonus, int score){
+        if (gameOver) {
+            score += (levelCompleted * bonus);   
+        }
+        return score;
+    }
 }
 
