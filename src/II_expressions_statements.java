@@ -7,6 +7,7 @@ public class II_expressions_statements {
         ifThenElseChallenge(800);
         methodCalculateScore(true, 8, 200, 800);
         System.out.printf("Your final score was %s%n", methodCalculateScore(true, 8, 200, 800));
+        methodChallenge("Tim", 5, 1111);
 
     }
 
@@ -76,6 +77,19 @@ public class II_expressions_statements {
             score += (levelCompleted * bonus);   
         }
         return score;
+    }
+
+    public static void methodChallenge(String name, int position, int score){
+        System.out.printf("%s managed to get into position %d on the high score list%n", name, position);
+        if (score >= 1000) {
+            System.out.println("1");
+        }else if (score >= 500 && score < 1000) {
+            System.out.println("2");
+        }else if (score >= 100 && score < 500) {
+            System.out.println("3");
+        }else{
+            System.out.println("4");
+        }
     }
 }
 
