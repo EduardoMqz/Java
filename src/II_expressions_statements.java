@@ -11,6 +11,9 @@ public class II_expressions_statements {
         checkNumber(5);
         System.out.println(toMilesPerHour(25.42));
         printMegaBytesAndKiloBytes(2500);
+        System.out.println(shouldWakeUp(true, -1));
+        System.out.println(leapYear(2000));
+        System.out.println(areEqualByThreeDeciamalPlaces(-3.1756,3.175));
 
     }
 
@@ -112,8 +115,42 @@ public class II_expressions_statements {
     public static void printMegaBytesAndKiloBytes(int kiloBytes) {
         if (kiloBytes < 0) {
             System.out.println("Invalid value");
-        }else{
-            System.out.printf("%s KB = %s MB and %s KB",kiloBytes, kiloBytes / 1024, kiloBytes % 1024);
+        } else {
+            System.out.printf("%s KB = %s MB and %s KB%n", kiloBytes, kiloBytes / 1024, kiloBytes % 1024);
         }
     }
+
+    public static boolean shouldWakeUp(boolean barking, int hourOfDay) {
+        if(hourOfDay < 0 || hourOfDay > 23){
+            return false;
+        }
+        if (barking && (hourOfDay < 8 || hourOfDay > 23)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean leapYear(int year){
+        if (year < 1 || year >9999) {
+            return false;
+        }
+        if(year % 4 != 0){
+            return false;
+        }else if(year % 100 != 0){
+            return false;
+        }else if(year % 400 != 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public static boolean areEqualByThreeDeciamalPlaces(double param1,  double param2){
+        int num1 = (int) param1 * 1000;
+        int num2 = (int) param2 * 1000;
+        return num1 == num2;
+    }
+
+    
 }
