@@ -13,7 +13,9 @@ public class II_expressions_statements {
         printMegaBytesAndKiloBytes(2500);
         System.out.println(shouldWakeUp(true, -1));
         System.out.println(leapYear(2000));
-        System.out.println(areEqualByThreeDeciamalPlaces(-3.1756,3.175));
+        System.out.println(areEqualByThreeDeciamalPlaces(-3.1756, 3.175));
+        System.out.println(hasEqualSum(1, 1, 2));
+        System.out.println(hasTeen(22, 44, 33));
 
     }
 
@@ -121,7 +123,7 @@ public class II_expressions_statements {
     }
 
     public static boolean shouldWakeUp(boolean barking, int hourOfDay) {
-        if(hourOfDay < 0 || hourOfDay > 23){
+        if (hourOfDay < 0 || hourOfDay > 23) {
             return false;
         }
         if (barking && (hourOfDay < 8 || hourOfDay > 23)) {
@@ -131,26 +133,43 @@ public class II_expressions_statements {
         }
     }
 
-    public static boolean leapYear(int year){
-        if (year < 1 || year >9999) {
+    public static boolean leapYear(int year) {
+        if (year < 1 || year > 9999) {
             return false;
         }
-        if(year % 4 != 0){
+        if (year % 4 != 0) {
             return false;
-        }else if(year % 100 != 0){
+        } else if (year % 100 != 0) {
             return false;
-        }else if(year % 400 != 0){
+        } else if (year % 400 != 0) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
 
-    public static boolean areEqualByThreeDeciamalPlaces(double param1,  double param2){
+    public static boolean areEqualByThreeDeciamalPlaces(double param1, double param2) {
         int num1 = (int) param1 * 1000;
         int num2 = (int) param2 * 1000;
         return num1 == num2;
     }
 
-    
+    public static boolean hasEqualSum(int num1, int num2, int total) {
+        if (num1 + num2 == total) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean hasTeen(int num1, int num2, int num3) {
+        if (num1 >= 13 && num1 <= 19) {
+            return true;
+        } else if (num2 >= 13 && num2 <= 19) {
+            return true;
+        } else if (num3 >= 13 && num3 <= 19) {
+            return true;
+        }
+        return false;
+    }
+
 }
