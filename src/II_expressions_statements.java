@@ -16,6 +16,9 @@ public class II_expressions_statements {
         System.out.println(areEqualByThreeDeciamalPlaces(-3.1756, 3.175));
         System.out.println(hasEqualSum(1, 1, 2));
         System.out.println(hasTeen(22, 44, 33));
+        methodOverloading("Allen", 1523);
+        methodOverloading( 1523);
+        methodOverloading();
 
     }
 
@@ -171,5 +174,21 @@ public class II_expressions_statements {
         }
         return false;
     }
+
+    public static int methodOverloading(String playerName, int score){
+        System.out.printf("player %s scored %d%n",playerName, score);
+        return score * 1000;
+    }
+
+    public static int methodOverloading(int score){
+        System.out.printf("Unnamed player scored %d%n", score);
+        return score * 1000;
+    }
+
+    public static int methodOverloading(){
+        System.out.println("No player name, no player score");
+        return 0;
+    }
+
 
 }
