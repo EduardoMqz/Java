@@ -19,6 +19,10 @@ public class II_expressions_statements {
         methodOverloading("Allen", 1523);
         methodOverloading( 1523);
         methodOverloading();
+        System.out.println(convertToCentimeters(1));
+        System.out.println(convertToCentimeters(6,0));
+        getDurationString(13225,45);
+        getDurationString(24578);
 
     }
 
@@ -190,5 +194,37 @@ public class II_expressions_statements {
         return 0;
     }
 
+    public static double convertToCentimeters(int inches){
+        return inches * 2.54;
+    }
 
+    public static double convertToCentimeters(int feets, int inches){
+        int newIches = feets * 12;
+        newIches += inches;
+        return convertToCentimeters(newIches);
+        //return convertToCentimeters((feet * 12) + inches);
+    }
+
+    public static String getDurationString(int seconds){
+        if (seconds < 0) {
+            return "NaN";
+        }
+        int hour = seconds / 3600;
+        int minute = (seconds % 3600) / 60;
+        int second = ((seconds % 3600) % 60) / 60;
+        System.out.printf("%sH %sm %ss%n",hour, minute,second);
+        return "%Sh %sm %Ss";
+    }
+
+    public static String getDurationString(int minutes, int seconds){
+        if ((minutes < 0) || (seconds < 0) || (seconds > 59)) {
+            System.out.println("NaN");
+            return "NaN";
+        }
+        int newSeconds = (minutes * 60) + seconds;
+        int hour = newSeconds / 3600;
+        int minute = (newSeconds % 3600) / 60;
+        System.out.printf("%sH %sm %ss%n",hour, minute,seconds);
+        return hour+"h YYm ZZs";
+    }
 }
