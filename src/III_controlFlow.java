@@ -2,6 +2,8 @@ public class III_controlFlow {
     public static void main(String[] args) throws Exception {
         switchStatement(5);
         System.out.println(getQuarter("fEbRuArY"));
+        traditionalSwitchChallenge('A');
+        printDayOfWeek(6);
 
     }
 
@@ -64,6 +66,43 @@ public class III_controlFlow {
             case "OCTOBER", "NOVEMBER", "DECEMBER" -> "4th";
             default -> "bad";
         };
+    }
+
+    public static void traditionalSwitchChallenge(char natoChar) {
+        switch (natoChar) {
+            case 'A':
+                System.out.printf("%c is Able%n", natoChar);
+                break;
+            case 'B':
+                System.out.printf("%c is Baker", natoChar);
+                break;
+            case 'C':
+                System.out.printf("%c is Charlie", natoChar);
+                break;
+            case 'D':
+                System.out.printf("%c is Dog", natoChar);
+                break;
+            case 'E':
+                System.out.printf("%c is Easy", natoChar);
+                break;
+            default:
+                System.out.printf("Letter %c not found in the switch%n", natoChar);
+                break;
+        }
+    }
+
+    public static void printDayOfWeek(int day) {
+        String dayOfWeek = switch (day) {
+            case 0 -> "Monday";
+            case 1 -> "Tuesday";
+            case 2 ->"Wednesday";
+            case 3 -> "Thursday";
+            case 4 -> "Friday";
+            case 5 -> "Saturday";
+            case 6 -> "Sunday";
+            default -> "Invalid day";
+        };
+        System.out.printf("%s stands for %s", day, dayOfWeek);
 
     }
 }
