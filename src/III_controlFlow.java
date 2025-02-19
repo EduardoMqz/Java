@@ -4,6 +4,9 @@ public class III_controlFlow {
         System.out.println(getQuarter("fEbRuArY"));
         traditionalSwitchChallenge('A');
         printDayOfWeek(6);
+        forStatement(10);
+        System.out.println("0 is " + (isPrime(0) ? "" : "NOT ") + "a prime number");
+        forLoopChallenge(26);
 
     }
 
@@ -102,7 +105,52 @@ public class III_controlFlow {
             case 6 -> "Sunday";
             default -> "Invalid day";
         };
-        System.out.printf("%s stands for %s", day, dayOfWeek);
+        System.out.printf("%s stands for %s%n", day, dayOfWeek);
+    }
 
+    public static void forStatement(int countTo){
+        for(int i = 1; i <= countTo; i++){
+            System.out.printf("Your counter is: %s%n",i);
+        }
+        System.out.println("10,000 at 2% interest = $" + calculateInterest(10000,2.0));
+        for(double rate = 3; rate <= countTo; rate++){
+            System.out.printf("10,000 at %.2f%% interest = $" + calculateInterest(10000, rate) + "%n",rate);
+        }
+        for(double rate = 7.5; rate <= 10; rate = rate += 0.25){
+            double interestAmount = calculateInterest(100, rate);
+            if (interestAmount > 8.5) {
+                break;
+            }
+            System.out.printf("100 at %.2f%% interest = $" + interestAmount + "%n",rate);
+        }
+    }
+    public static double calculateInterest(double amount, double interestRate){
+        return (amount * (interestRate / 100));
+    }
+
+    public static void forLoopChallenge(int number){
+        int primeCounter = 0;
+        for (;number <= 1000; number++) { //for (;primeCounter < 3 && number <= 1000; number++)
+            if(isPrime(number)){
+                System.out.printf("%s is a prime number%n", number);
+                primeCounter ++;
+                if (primeCounter == 3) {
+                    System.out.println("Found 3 - Exiting for loop");
+                    break;
+                }
+            }
+        }
+    }
+
+    public static boolean isPrime(int wholeNumber){
+        if(wholeNumber <= 2){
+            return (wholeNumber == 2);
+        }
+        for(int divisor = 2; divisor < wholeNumber; divisor++){
+            if(wholeNumber % divisor == 0){
+                return false;
+            }
+        }
+        return true;
     }
 }
