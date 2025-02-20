@@ -7,6 +7,8 @@ public class III_controlFlow {
         forStatement(10);
         System.out.println("0 is " + (isPrime(0) ? "" : "NOT ") + "a prime number");
         forLoopChallenge(26);
+        sum3And5(457);
+        whileAndDoWhile();
 
     }
 
@@ -98,7 +100,7 @@ public class III_controlFlow {
         String dayOfWeek = switch (day) {
             case 0 -> "Monday";
             case 1 -> "Tuesday";
-            case 2 ->"Wednesday";
+            case 2 -> "Wednesday";
             case 3 -> "Thursday";
             case 4 -> "Friday";
             case 5 -> "Saturday";
@@ -108,32 +110,33 @@ public class III_controlFlow {
         System.out.printf("%s stands for %s%n", day, dayOfWeek);
     }
 
-    public static void forStatement(int countTo){
-        for(int i = 1; i <= countTo; i++){
-            System.out.printf("Your counter is: %s%n",i);
+    public static void forStatement(int countTo) {
+        for (int i = 1; i <= countTo; i++) {
+            System.out.printf("Your counter is: %s%n", i);
         }
-        System.out.println("10,000 at 2% interest = $" + calculateInterest(10000,2.0));
-        for(double rate = 3; rate <= countTo; rate++){
-            System.out.printf("10,000 at %.2f%% interest = $" + calculateInterest(10000, rate) + "%n",rate);
+        System.out.println("10,000 at 2% interest = $" + calculateInterest(10000, 2.0));
+        for (double rate = 3; rate <= countTo; rate++) {
+            System.out.printf("10,000 at %.2f%% interest = $" + calculateInterest(10000, rate) + "%n", rate);
         }
-        for(double rate = 7.5; rate <= 10; rate = rate += 0.25){
+        for (double rate = 7.5; rate <= 10; rate = rate += 0.25) {
             double interestAmount = calculateInterest(100, rate);
             if (interestAmount > 8.5) {
                 break;
             }
-            System.out.printf("100 at %.2f%% interest = $" + interestAmount + "%n",rate);
+            System.out.printf("100 at %.2f%% interest = $" + interestAmount + "%n", rate);
         }
     }
-    public static double calculateInterest(double amount, double interestRate){
+
+    public static double calculateInterest(double amount, double interestRate) {
         return (amount * (interestRate / 100));
     }
 
-    public static void forLoopChallenge(int number){
+    public static void forLoopChallenge(int number) {
         int primeCounter = 0;
-        for (;number <= 1000; number++) { //for (;primeCounter < 3 && number <= 1000; number++)
-            if(isPrime(number)){
+        for (; number <= 1000; number++) { // for (;primeCounter < 3 && number <= 1000; number++)
+            if (isPrime(number)) {
                 System.out.printf("%s is a prime number%n", number);
-                primeCounter ++;
+                primeCounter++;
                 if (primeCounter == 3) {
                     System.out.println("Found 3 - Exiting for loop");
                     break;
@@ -142,15 +145,56 @@ public class III_controlFlow {
         }
     }
 
-    public static boolean isPrime(int wholeNumber){
-        if(wholeNumber <= 2){
+    public static boolean isPrime(int wholeNumber) {
+        if (wholeNumber <= 2) {
             return (wholeNumber == 2);
         }
-        for(int divisor = 2; divisor < wholeNumber; divisor++){
-            if(wholeNumber % divisor == 0){
+        for (int divisor = 2; divisor < wholeNumber; divisor++) {
+            if (wholeNumber % divisor == 0) {
                 return false;
             }
         }
         return true;
+    }
+
+    public static void sum3And5(int initialValue) {
+        int sum = 0;
+        int count = 0;
+        for (int i = initialValue; i <= 1000; i++) {
+            if ((i % 3 == 0) && (i % 5 == 0)) {
+                sum += i;
+                System.out.printf("%s can be divided by 3 and 5%n", i);
+                count++;
+                if (count == 5) {
+                    break;
+                }
+            }
+        }
+        System.out.printf("Total: %s%n", sum);
+    }
+
+    private static void whileAndDoWhile() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Inside for loop i = " + i);
+        }
+        int j = 1;
+
+        while (j <= 5) {
+            System.out.println("Inside while i =" + j);
+            j++;
+        }
+        j = 1;
+        do {
+            System.out.println("Inside do while i =" + j);
+            j++;
+        } while (j <= 5);
+        j = 0;
+        while (j < 50) {
+            j += 5;
+            if (j % 25 == 0) {
+                continue;
+            }
+            System.out.println(j + "__");
+        }
     }
 }
