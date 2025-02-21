@@ -9,6 +9,7 @@ public class III_controlFlow {
         forLoopChallenge(26);
         sum3And5(457);
         whileAndDoWhile();
+        readingUserInputConsole(2025);
 
     }
 
@@ -173,7 +174,7 @@ public class III_controlFlow {
         System.out.printf("Total: %s%n", sum);
     }
 
-    private static void whileAndDoWhile() {
+    public static void whileAndDoWhile() {
         for (int i = 1; i <= 5; i++) {
             System.out.println("Inside for loop i = " + i);
         }
@@ -194,7 +195,23 @@ public class III_controlFlow {
             if (j % 25 == 0) {
                 continue;
             }
-            System.out.println(j + "__");
+            System.out.println(j +  "__");
         }
     }
+
+    public static String readingUserInputConsole(int currentYear){
+        String name = System.console().readLine("What's your name?");
+        System.out.printf("Thanks %s for answering my question%n",name);
+        String dateOfBirth = System.console().readLine("What year were you born? ");
+        int age = currentYear - Integer.parseInt(dateOfBirth);
+        return "So you are " + age + " years old"; 
+    }
+
+    public static String readingUserInputScanner(int currentYear){
+
+        return "";
+    }
+
+
+
 }
