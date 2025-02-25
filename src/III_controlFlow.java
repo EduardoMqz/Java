@@ -11,11 +11,10 @@ public class III_controlFlow {
         forLoopChallenge(26);
         sum3And5(457);
         whileAndDoWhile();
-        try {
-            readingUserInputConsole(2025);
-        } catch (NullPointerException e) {
-            readingUserInputScanner(2025);
-        }
+        System.out.println(readingUserInputConsole(2025));
+        System.out.println(readingUserInputScanner(2025));
+        readingUserInputChallenge();
+
     }
 
     public static void switchStatement(int value) {
@@ -200,30 +199,63 @@ public class III_controlFlow {
             if (j % 25 == 0) {
                 continue;
             }
-            System.out.println(j +  "__");
+            System.out.println(j + "__");
         }
     }
 
-    public static String readingUserInputConsole(int currentYear){
+    public static String readingUserInputConsole(int currentYear) {
         String name = System.console().readLine("What's your name?");
-        System.out.printf("Thanks %s for answering my question%n",name);
+        System.out.printf("Thanks %s for answering my question%n", name);
         String dateOfBirth = System.console().readLine("What year were you born? ");
         int age = currentYear - Integer.parseInt(dateOfBirth);
-        return "So you are " + age + " years old"; 
+        return "So you are " + age + " years old";
     }
 
-    public static String readingUserInputScanner(int currentYear){
+    public static String readingUserInputScanner(int currentYear) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What's your name?");
         String name = scanner.nextLine();
-        System.out.printf("Thanks %s for answering my question%n",name);
+        System.out.printf("Thanks %s for answering my question%n", name);
         System.out.println("What year were you born?");
-        String dateOfBirth = scanner.nextLine();
-        int age = currentYear - Integer.parseInt(dateOfBirth);
-        return "So you are " + age + " years old"; 
-
+        boolean validOB = false;
+        int age = 0;
+        do {
+            System.out.println("Enter a year of birth >=" + (currentYear - 125) + " and <= " + (currentYear));
+            try {
+                // String dateOfBirth = scanner.nextLine();
+                // age = checkData(currentYear, dateOfBirth);
+                age = checkData(currentYear, scanner.nextLine());
+                validOB = age < 0 ? false : true;
+            } catch (NumberFormatException badUserData) {
+                System.out.println("Characters not allowed!! try again");
+            }
+        } while (!validOB);
+        return "So you are " + age + " years old";
     }
 
+    public static int checkData(int currentYear, String dateOfBirth) {
+        int dob = Integer.parseInt(dateOfBirth);
+        int minimumYear = currentYear - 125;
+        if ((dob < minimumYear) || (dob > currentYear)) {
+            return -1;
+        }
+        return (currentYear - dob);
+    }
 
-
+    public static void readingUserInputChallenge() {
+        int countValidNumber = 0;
+        int sum = 0;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.printf("Enter number #%s: %n", countValidNumber);
+            try {
+                int number = Integer.parseInt(scanner.nextLine());
+                countValidNumber++;
+                sum += number;
+            } catch (NumberFormatException badUserInput) {
+                System.out.println("Characters not allowed!! try again");
+            }
+        } while (countValidNumber < 5);
+        System.out.printf("The sum of the numbers = %s%n",sum);
+    }
 }
