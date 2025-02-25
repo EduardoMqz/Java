@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class III_controlFlow {
     public static void main(String[] args) throws Exception {
         switchStatement(5);
@@ -9,8 +11,11 @@ public class III_controlFlow {
         forLoopChallenge(26);
         sum3And5(457);
         whileAndDoWhile();
-        readingUserInputConsole(2025);
-
+        try {
+            readingUserInputConsole(2025);
+        } catch (NullPointerException e) {
+            readingUserInputScanner(2025);
+        }
     }
 
     public static void switchStatement(int value) {
@@ -208,8 +213,15 @@ public class III_controlFlow {
     }
 
     public static String readingUserInputScanner(int currentYear){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What's your name?");
+        String name = scanner.nextLine();
+        System.out.printf("Thanks %s for answering my question%n",name);
+        System.out.println("What year were you born?");
+        String dateOfBirth = scanner.nextLine();
+        int age = currentYear - Integer.parseInt(dateOfBirth);
+        return "So you are " + age + " years old"; 
 
-        return "";
     }
 
 
