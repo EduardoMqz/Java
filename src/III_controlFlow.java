@@ -14,6 +14,7 @@ public class III_controlFlow {
         System.out.println(readingUserInputConsole(2025));
         System.out.println(readingUserInputScanner(2025));
         readingUserInputChallenge();
+        minMaxChallenge();
 
     }
 
@@ -256,6 +257,29 @@ public class III_controlFlow {
                 System.out.println("Characters not allowed!! try again");
             }
         } while (countValidNumber < 5);
-        System.out.printf("The sum of the numbers = %s%n",sum);
+        System.out.printf("The sum of the numbers = %s%n", sum);
     }
+
+    public static void minMaxChallenge() {
+        Scanner scanner = new Scanner(System.in);
+        int min = 0;
+        int max = 0;
+        do {
+            System.out.println("What's your number?");
+            try {
+                int number = Integer.parseInt(scanner.nextLine());
+                min = (min == 0) || (number < min) ? number : min;
+                max = (min == 0) || (number > max) ? number : max;
+            } catch (Exception e) {
+                break;
+            }
+        } while (true);
+
+        if ((min != 0) && (max != 0)) {
+            System.out.printf("min = %s , and max = %s%n", min, max);
+        } else {
+            System.out.println("No valid data entered");
+        }
+    }
+
 }
