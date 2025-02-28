@@ -14,7 +14,12 @@ public class Car {
     }
 
     public void setBrand(String brand) {
-        this.brand = brand;
+        if(brand == null) {brand = "Unknown";}
+        String lowerCaseBrand = brand.toLowerCase();
+        switch (lowerCaseBrand) {
+            case "BNW", "Porsche", "BYD", "Toyota" -> this.brand = brand;
+            default -> {this.brand = "Unsupported";}
+        }
     }
 
     public String getColor() {
@@ -67,7 +72,7 @@ public class Car {
 
     public void start() {
         isOn = true;
-        System.out.println("Engine started");
+        System.out.printf("Your %s car engine has started%n", brand);
     }
 
     public void accelerate() {
