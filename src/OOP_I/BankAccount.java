@@ -1,4 +1,4 @@
-package OP_I;
+package OOP_I;
 
 public class BankAccount {
     private int accountNumber;
@@ -6,6 +6,20 @@ public class BankAccount {
     private String customerName;
     private String email;
     private String phoneNumber;
+
+    public BankAccount(){
+        this(63251,100, "Default Name", "Default address", "Default Phone");
+        System.out.println("Empty Constructor");
+    }
+
+    public BankAccount(int accNumber, double balance, String cusName, String email, String phoneNumber){
+        System.out.println("Account constructor with parameters called");
+        accountNumber = accNumber;
+        this.balance = balance;
+        customerName = cusName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 
     public int getAccountNumber() {
         return accountNumber;

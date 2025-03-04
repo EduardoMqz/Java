@@ -1,4 +1,4 @@
-package OP_I;
+package OOP_I;
 
 public class Car {
     private String brand;
