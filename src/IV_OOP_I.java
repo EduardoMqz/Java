@@ -1,6 +1,7 @@
 import OOP_I.BankAccount;
 import OOP_I.Car;
 import OOP_I.Customer;
+import OOP_I.Student;
 
 public class IV_OOP_I {
     public static void main(String[] args) throws Exception {
@@ -9,6 +10,7 @@ public class IV_OOP_I {
         bankAccountConstructor();
         constructorChaining();
         constructorChallenge();
+        pojoClass();
     }
 
     public static void car(){
@@ -67,5 +69,25 @@ public class IV_OOP_I {
         System.out.printf("The customer %s credit limit is %s%n",noCreditCustomer.getName(),noCreditCustomer.getCreditLimit());
         Customer customer = new Customer("Juan Flores",500,"jperez@mail.com");
         System.out.printf("The customer %s credit limit is %s%n",customer.getName(),customer.getCreditLimit());
-    }    
+    } 
+    
+    public static void pojoClass(){
+        for (int i = 1; i <= 5; i++) {
+            Student s = new Student("L25480"+i, 
+            switch(i){
+                case 1 -> "Mary";
+                case 2 -> "Carol";
+                case 3 -> "Albert";
+                case 4 -> "Karla";
+                case 5 -> "Alma";
+                default -> "Default Name";
+            },"25/11/17", 
+            "Fundament of java");
+            System.out.println(s);
+        }
+
+        
+    }
+
+
 }
