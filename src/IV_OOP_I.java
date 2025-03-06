@@ -1,6 +1,7 @@
 import OOP_I.BankAccount;
 import OOP_I.Car;
 import OOP_I.Customer;
+import OOP_I.LPAStudent;
 import OOP_I.Student;
 
 public class IV_OOP_I {
@@ -11,6 +12,7 @@ public class IV_OOP_I {
         constructorChaining();
         constructorChallenge();
         pojoClass();
+        javaRecords();
     }
 
     public static void car(){
@@ -85,8 +87,23 @@ public class IV_OOP_I {
             "Fundament of java");
             System.out.println(s);
         }
+    }
 
-        
+    public static void javaRecords(){
+        for (int i = 1; i <= 5; i++) {
+            LPAStudent s = new LPAStudent("L25480"+i, 
+            switch(i){
+                case 1 -> "Mary";
+                case 2 -> "Carol";
+                case 3 -> "Albert";
+                case 4 -> "Karla";
+                case 5 -> "Alma";
+                default -> "Default Name";
+            },"25/11/17", 
+            "Fundament of java");
+            System.out.println(s);
+            System.out.printf("%s is taking %s%n",s.name(),s.classList());
+        }
     }
 
 
