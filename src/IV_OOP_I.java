@@ -4,9 +4,10 @@ import OOP_I.Car;
 import OOP_I.Customer;
 import OOP_I.Dog;
 import OOP_I.LPAStudent;
+import OOP_I.SalariedEmployee;
 import OOP_I.Student;
 
-public class IV_OOP_I {
+public class IV_OOP_I extends Object {
     public static void main(String[] args) throws Exception {
         car();
         bankAccount();
@@ -25,6 +26,7 @@ public class IV_OOP_I {
         doAnimalStuff(retriever, "slow");
         Dog wolf = new Dog("Wolf", 40);
         doAnimalStuff(wolf, "fast");
+        inheritanceChallenge();
     }
 
     public static void car(){
@@ -122,9 +124,15 @@ public class IV_OOP_I {
         animal.makeNoise();
         animal.move(speed);
         System.out.println(animal);
-        System.out.println("_ _ _ _ _ ");
+        System.out.println("_ _ _ _ _ ");  
+    }
 
-        
+    public static void inheritanceChallenge(){
+        SalariedEmployee anna = new SalariedEmployee("Anna", "2010", "2085", 45876249, "2040", 1005090, true);
+        anna.getAge();
+        anna.collectPay();
+        anna.terminate("2050");
+        anna.retire();
     }
 
 
