@@ -28,6 +28,30 @@ public class IV_OOP_I extends Object {
         doAnimalStuff(wolf, "fast");
         inheritanceChallenge();
         textBlock();
+        stringMethods("This world is mine");
+        stringMethods("");
+        stringMethods("\t \n");
+        stringManipulation();
+        String helloWorld = "Hello " + "world";
+        helloWorld.concat("and goodbye");
+        StringBuilder helloWorldBuilder =new StringBuilder("Hello " + "world ") ;
+        helloWorldBuilder.append("and goodbye");
+        stringBuilder(helloWorld);
+        stringBuilder(helloWorldBuilder);
+        StringBuilder emptyStart = new StringBuilder();
+        emptyStart.append("a".repeat(57));
+        StringBuilder emptyStart32 = new StringBuilder(32);
+        emptyStart32.append("a".repeat(17));
+        stringBuilder(emptyStart);
+        stringBuilder(emptyStart32);
+        StringBuilder builderPlus =new StringBuilder("Hello " + " world") ;
+        builderPlus.append("and goodbye");
+        builderPlus.deleteCharAt(16).insert(16, 'ñ');
+        System.out.println(builderPlus);
+        builderPlus.replace(16, 17, "G");
+        System.out.println(builderPlus);
+        builderPlus.reverse().setLength(7);
+        System.out.println(builderPlus);
     }
 
     public static void car(){
@@ -146,8 +170,85 @@ public class IV_OOP_I extends Object {
                     \u2022 first point
                         \u2022 sub point""";
         System.out.println(textBlock);
+    }
+
+    public static void stringMethods(String information){
+        int length = information.length();
+        System.out.printf("Length = %d %n", length);
+        if(information.isEmpty()){
+            System.out.println("Empty string");
+            return;
+        }
+        if (information.isBlank()) {
+            System.out.println("Blank string");
+            return;
+        }
+        System.out.printf("First char = %c %n",information.charAt(0));
+        System.out.printf("Last char = %c %n",information.charAt(length - 1));
+        System.out.printf("Index of e = %d %n",information.indexOf('e'));
+        System.out.printf("Index of l = %d %n",information.indexOf('l'));
+        System.out.printf("Last index of l = %d %n",information.lastIndexOf('l'));
+        System.out.printf("Index of 'is' = %d %n",information.indexOf("mine"));
+        String inforationUpper = information.toUpperCase();
+        if (information.equals(inforationUpper)) {
+            System.out.println("values match exactly");
+        }
+        if (information.equalsIgnoreCase(inforationUpper)) {
+            System.out.println("values match ignoring case");
+        }
+        if(information.startsWith("This")){
+            System.out.println("String starts with 'This'");
+        }
+        if(information.endsWith("mine")){
+            System.out.println("String starts with 'mine'");
+        }
+        if(information.contains("world")){
+            System.out.println("String contains 'world'");
+        }
+    }
+
+    public static void stringManipulation(){
+        String birthDate = "25/11/2025";
+        int startingIndex = birthDate.indexOf("2025");
+        System.out.println("starting index "+startingIndex);
+        System.out.println("Birth year = "+birthDate.substring(startingIndex));
+        System.out.println("Month = "+ birthDate.substring(3, 5));
+        String newDate = String.join("/", "03","13","2025");
+        System.out.println("newDate = "+ newDate);
+        newDate = "03";
+        newDate = newDate.concat("/");
+        newDate = newDate.concat("14");
+        newDate = newDate.concat("/");
+        newDate = newDate.concat("2025");
+        System.out.println("newDate = "+ newDate);
+        newDate = "03"+"/"+"15"+"/"+"2025";
+        System.out.println("newDate = "+ newDate);
+        newDate = "03".concat("/").concat("16").concat("/").concat("2025");
+        System.out.println("newDate = "+ newDate);
+        System.out.println(newDate.replace('/', '-'));
+        System.out.println(newDate.replace("2", "00"));
+        System.out.println(newDate.replaceFirst("/", "--"));
+        System.out.println(newDate.replaceAll("/", "---"));
+        System.out.println("ABC\n".repeat(3));
+        System.out.println("-".repeat(20));
+        System.out.println("ABC\n".repeat(3).indent(8));
+        System.out.println("-".repeat(20));
+        System.out.println("    ABC\n".repeat(3).indent(-2));
+        System.out.println("-".repeat(20));
+    }
+
+    public static void stringBuilder(String string){
+        System.out.println("String = " + string);
+        System.out.println("Length = " + string.length());
+    }
+
+    public static void stringBuilder(StringBuilder builder){
+        System.out.println("String = " + builder);
+        System.out.println("Length = " + builder.length());
+        System.out.println("Capacity = " + builder.capacity());
 
     }
+
 
 
 }
