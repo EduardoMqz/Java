@@ -27,6 +27,7 @@ public class IV_OOP_I extends Object {
         Dog wolf = new Dog("Wolf", 40);
         doAnimalStuff(wolf, "fast");
         inheritanceChallenge();
+        textBlock();
     }
 
     public static void car(){
@@ -133,6 +134,19 @@ public class IV_OOP_I extends Object {
         anna.collectPay();
         anna.terminate("2050");
         anna.retire();
+    }
+
+    public static void textBlock(){
+        String bulletId = "Print a bullet list:\n"+
+        "\t\u2022 First point\n"+
+        "\t\t\u2022 Sub point";
+        System.out.println(bulletId);
+        String textBlock = """
+                Print a bulleted List:
+                    \u2022 first point
+                        \u2022 sub point""";
+        System.out.println(textBlock);
+
     }
 
 
