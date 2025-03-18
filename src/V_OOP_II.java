@@ -1,13 +1,5 @@
-import OOP_II.Adventure;
-import OOP_II.Comedy;
-import OOP_II.ComputerCase;
-import OOP_II.Monitor;
-import OOP_II.MotherBoard;
-import OOP_II.Movie;
-import OOP_II.PersonalComputer;
-import OOP_II.Player;
-import OOP_II.Printer;
-import OOP_II.SmartKitchen;
+import java.util.Scanner;
+import OOP_II.*;
 
 
 public class V_OOP_II {
@@ -17,6 +9,7 @@ public class V_OOP_II {
         encapsulation();
         encapsulationChallenge();
         polymorphism();
+        polymorphismChallengue();
 
     }
 
@@ -66,7 +59,35 @@ public class V_OOP_II {
         advMovie.watchMovie();
         Movie comMovie = new Comedy("Scary movie");
         comMovie.watchMovie();
+        Movie getMovie = Movie.createMovie("Adventure","Chihiro");
+        getMovie.watchMovie();
+        Scanner scan = new Scanner(System.in);
+        while (true) {
+            System.out.println("Enter Type (A for adventure, C for Comedy or Q to quit): ");
+            String type = scan.nextLine();
+            if("Qq".contains(type)){
+                break;
+            }
+            System.out.println("Enter movie title: ");
+            String title = scan.nextLine();
+            Movie addMovie = Movie.createMovie(type, title);
+            addMovie.watchMovie();
+            
+        }
     }
+
+    public static void polymorphismChallengue(){
+        Car car = new Car("2022 Ferrari");
+        car.startEngine();
+        car.drive();
+        System.out.println("---".repeat(10));
+        Car integra = new GasPoweredCar("2025 acurre integra",15.4, 6);
+        integra.startEngine();
+        integra.drive();
+
+    }
+
+    
 
 
 }
