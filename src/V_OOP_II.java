@@ -10,6 +10,7 @@ public class V_OOP_II {
         encapsulationChallenge();
         polymorphism();
         polymorphismChallengue();
+        burgerRestaturant();
 
     }
 
@@ -78,13 +79,47 @@ public class V_OOP_II {
 
     public static void polymorphismChallengue(){
         Car car = new Car("2022 Ferrari");
-        car.startEngine();
-        car.drive();
+        runrace(car);
         System.out.println("---".repeat(10));
         Car integra = new GasPoweredCar("2025 acurre integra",15.4, 6);
-        integra.startEngine();
-        integra.drive();
+        runrace(integra);
+        System.out.println("---".repeat(10));
+        Car byd = new ElectricCar("2025 Song pro",568,75);
+        runrace(byd);
 
+    }
+
+    public static void runrace(Car car){
+        car.startEngine();
+        car.drive();
+    }
+
+    public static void burgerRestaturant(){
+        Item coke = new Item("drink", "coke", 15);
+        coke.printItem();
+        coke.setSize("large");
+        coke.printItem();
+        System.out.println("*******".repeat(15));
+        Item avocado = new Item("Topping", "Avocado", 10);
+        avocado.printItem();
+        System.out.println("*******".repeat(15));
+        Burger burger = new Burger("regular", 50);
+        burger.addToppings("bacon", "cheese", "mayo");
+        burger.printItem();
+        System.out.println("*******".repeat(15));
+        Meal meal = new Meal();
+        meal.printItemizedList();
+        System.out.println("*******".repeat(15));
+        Meal regularOrder = new Meal();
+        regularOrder.addBurgerToppings("bacon", "cheese", "mayo");
+        regularOrder.setDrinkSize("large");
+        regularOrder.printItemizedList();
+        System.out.println("*******".repeat(15));
+        Meal secondMeal = new Meal("turkey", "7-up", "chili");
+        secondMeal.addBurgerToppings("lettuce", "cheese", "bacon");
+        secondMeal.setDrinkSize("large");
+        secondMeal.printItemizedList();
+        
     }
 
     
