@@ -119,6 +119,12 @@ public class V_OOP_II {
         secondMeal.addBurgerToppings("lettuce", "cheese", "bacon");
         secondMeal.setDrinkSize("large");
         secondMeal.printItemizedList();
+        System.out.println("*******".repeat(15));
+        Meal delBur = new Meal("deluxe","7-up","fries");
+        delBur.addBurgerToppings("cheese", "bacon", "avocado","mayo","ham");
+        delBur.setDrinkSize("small");
+        delBur.printItemizedList();
+
         
     }
 
