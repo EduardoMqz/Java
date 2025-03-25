@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -19,8 +20,8 @@ public class VI_Arrays {
         System.out.println("min = "+ returnedMin);
         int[] originalArray = {10,9,8,7,6,5,4,3,2,1};
         reverseMethod(originalArray);
-        
-
+        array2D();
+        multiDimensionalArray();
     }
 
     public static void arraysFoundations() {
@@ -188,6 +189,53 @@ public class VI_Arrays {
             thirdArray[maxIndex--] = element;
         }
         System.out.println(Arrays.toString(thirdArray));
+    }
 
+    public static void array2D(){
+        int[][] array2 = new int[4][4];
+        System.out.println(Arrays.toString(array2));
+        System.out.println("array2 lenght = " + array2.length);
+        for (int[] arr : array2) {
+            System.out.println(Arrays.toString(arr));
+        }
+
+        for (int i = 0; i < array2.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                array2[i][j] = (i * 10) + (j + 1);
+                System.out.println(array2[i][j] +" ");
+            }
+            System.out.println();
+        }
+
+        for (var outer : array2) {
+            for (var element : outer) {
+                System.out.println(element + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println(Arrays.deepToString(array2));
+    }
+
+    public static void multiDimensionalArray(){
+        int[][] array2 = new int[4][4];
+        array2[1] = new int[] {10,20,30};
+        System.out.println(Arrays.deepToString(array2));
+        Object[] anyArray = new Object[3];
+        System.out.println(Arrays.toString(anyArray));
+        anyArray[0] = new String[] {"Mokka", "Figaro", "Doggie"};
+        System.out.println(Arrays.deepToString(anyArray));
+        anyArray[1] = new int[][]{
+            {1,2,3},
+            {4,5,6,4},
+            {7,8,9,10,11}};
+        System.out.println(Arrays.deepToString(anyArray));
+        anyArray[2] = new int[2][2][2];
+        System.out.println(Arrays.deepToString(anyArray));
+        for (Object element : anyArray) {
+            System.out.println("Element type: " + element.getClass().getSimpleName());
+            System.out.println("element toStrin(): "+element);
+            System.out.println(Arrays.deepToString((Object[]) element));
+        }
     }
 }
