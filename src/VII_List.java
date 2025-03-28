@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Scanner;
 import Lists.*;
 
@@ -13,6 +14,8 @@ public class VII_List {
         arrayVSarrayList();
         arrayListChallenge();
         linkedList();
+        linkedListEssentials();
+        iterators();
 
     }
 
@@ -199,8 +202,76 @@ public class VII_List {
         String pop = placesToVisit.pop();
         System.out.println(pop+" was removed");
         System.out.println(placesToVisit);
-
-
     }
 
+    public static void linkedListEssentials(){
+        LinkedList<String> placesToVisit = new LinkedList<>();
+        placesToVisit.add("Tokyo");
+        placesToVisit.add(0,"Seoul");
+        placesToVisit.add(0,"Beijin");
+        placesToVisit.addLast("London");
+        placesToVisit.addFirst("Osaka");
+        System.out.println(placesToVisit);
+        System.out.println("retrieved element: "+placesToVisit.get(4));
+        System.out.println("first element: " +placesToVisit.getFirst() );
+        System.out.println("last element: "+placesToVisit.getLast());
+        System.out.println("beijin is at position:"+placesToVisit.indexOf("Beijin"));
+        System.out.println("seoul is at position: "+placesToVisit.lastIndexOf("Seoul"));
+
+        //queue retrieval method
+        System.out.println("element from .element(): "+placesToVisit.element());
+
+        //stach retrieval methods
+        System.out.println("element from .peek():"+placesToVisit.peek());
+        System.out.println("element from .peekFirst():"+placesToVisit.peekFirst());
+        System.out.println("element from .peekLast():"+placesToVisit.peekLast());
+
+        System.out.println("trip starts at "+placesToVisit.getFirst());
+        for (int i = 1; i < placesToVisit.size(); i++) {
+            System.out.printf("--> from: %s to %s%n",placesToVisit.get(i-1), placesToVisit.get(i));
+        }
+        System.out.println("**".repeat(10));
+        String prevTown = placesToVisit.getFirst();
+        for (String town : placesToVisit) {
+            System.out.printf("--> from: %s to %s%n",prevTown,town);
+            prevTown = town; 
+        }
+        System.out.println("**".repeat(10));
+        ListIterator<String> placesListIterator = placesToVisit.listIterator(1);
+        prevTown = placesToVisit.getFirst();
+        while (placesListIterator.hasNext()) {
+            String town = placesListIterator.next();
+            System.out.printf("--> from: %s to %s%n", prevTown, town);
+            prevTown = town;
+            
+        }
+        System.out.println("trips ends at "+placesToVisit.getLast());
+    }
+
+    public static void iterators(){
+        LinkedList<String> gamesToPlay = new LinkedList<>();
+        gamesToPlay.add("Khazan");
+        gamesToPlay.add(0,"Persona");
+        gamesToPlay.add(0,"Final fantasy");
+        gamesToPlay.addLast("Doom");
+        gamesToPlay.addFirst("Monster hunter");
+        System.out.println(gamesToPlay);
+        ListIterator<String> gamesIterator = gamesToPlay.listIterator();
+        //var gamesListIterator = gamesToPlay.listIterator();
+        while (gamesIterator.hasNext()) {
+            //System.out.println(gamesIterator.next());
+            if (gamesIterator.next().equals("Doom")) {
+                gamesIterator.remove();
+                gamesIterator.add("RAIDOU");
+            }
+        }
+        while(gamesIterator.hasPrevious()){
+            System.out.println(gamesIterator.previous());
+        }
+        System.out.println(gamesToPlay);
+    }
+
+    public static void linkedListChallenge(){
+        
+    }
 }
