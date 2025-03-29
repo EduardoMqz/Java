@@ -1,10 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
+
+import LinkedList.Places;
 import Lists.*;
 
 public class VII_List {
@@ -16,6 +19,7 @@ public class VII_List {
         linkedList();
         linkedListEssentials();
         iterators();
+        linkedListChallenge();
 
     }
 
@@ -146,7 +150,6 @@ public class VII_List {
                 }
             }
         }
-        scan.close();
     }
 
     public static void linkedList(){
@@ -272,6 +275,71 @@ public class VII_List {
     }
 
     public static void linkedListChallenge(){
-        
+        Scanner scan = new Scanner(System.in);
+        LinkedList<Places> placesToVisit = new LinkedList<>();
+        placesToVisit.add(new Places("Sydney", 0));
+        placesToVisit.add(new Places("Adelaide", 1374));
+        placesToVisit.add(new Places("Alice Springs", 2771));
+        placesToVisit.add(new Places("Brisbane", 917));
+        placesToVisit.add(new Places("Darwin", 3972));
+        placesToVisit.add(new Places("Melbourne", 877));
+        placesToVisit.add(new Places("Perth", 3923));
+        Collections.sort(placesToVisit, Comparator.comparing(p -> p.distance()));
+        Boolean whileFlag = true;
+        ListIterator<Places> placesIterator = placesToVisit.listIterator();
+        while (whileFlag) {
+            if (!placesIterator.hasPrevious()) {
+                System.out.println("Originating: " +placesIterator.next());  
+            }
+            if (!placesIterator.hasNext()) {
+                System.out.println("Final: " +placesIterator.previous());  
+            }
+            System.out.println("""
+                Available actions (Select word or letter):
+                (F)orward
+                (B)ackward
+                (L)ist Places
+                (Q)uit
+                Enter Value:""");
+            switch (scan.nextLine().toString().toUpperCase()) {
+                case "F","FORWARD" -> {
+                    if(placesIterator.hasNext()){
+                        System.out.println("You are now on: "+placesIterator.next().name());
+                    }   
+                }
+                case "B","BACKWARD" -> {
+                    if(placesIterator.hasPrevious()){
+                        System.out.println("You are now on: "+placesIterator.previous().name());
+                    } 
+                }
+                case "L", "LIST PALACES" -> {
+                    System.out.println(placesToVisit);
+                }
+                case "Q", "QUIT" -> {
+                    whileFlag = false;
+                    System.out.println("Closing");
+                }
+                default -> {
+                    System.out.println("Invalid option");
+                }
+            }
+        }
+    }
+
+    public static void autoBoxing(){
+        Integer boxedInt = Integer.valueOf(15);
+        Integer deprecatedBoxing = new Integer(15);
+        int unboxedInt = boxedInt.intValue();
+
+        //Automatic
+        Integer autoBoxed = 15;
+        int autoUnboxed = autoBoxed;
+        System.out.println(autoBoxed.getClass().getName());
+        System.out.println(autoUnboxed.getClass().getName());
+
+        Double resultBoxed = 100.00;
+        double resultUnboxed = Double.valueOf(100.00);
+
+
     }
 }
