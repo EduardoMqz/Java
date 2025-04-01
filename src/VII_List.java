@@ -1,13 +1,5 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Scanner;
+import java.util.*;
 
-import LinkedList.Places;
 import Lists.*;
 
 public class VII_List {
@@ -20,6 +12,8 @@ public class VII_List {
         linkedListEssentials();
         iterators();
         linkedListChallenge();
+        autoBoxing();
+        autoBoxingChallenge();
 
     }
 
@@ -335,11 +329,31 @@ public class VII_List {
         Integer autoBoxed = 15;
         int autoUnboxed = autoBoxed;
         System.out.println(autoBoxed.getClass().getName());
-        System.out.println(autoUnboxed.getClass().getName());
+        //System.out.println(autoUnboxed.getClass().getName());
 
         Double resultBoxed = 100.00;
         double resultUnboxed = Double.valueOf(100.00);
 
+        Integer[] wrapperArray = new Integer[5];
+        wrapperArray[0] = 50;
+        System.out.println(Arrays.toString(wrapperArray));
 
+        Character[] characterArray = {'a', 'b', 'c', 'd'};
+        System.out.println(Arrays.toString(characterArray));
+    }
+
+    public static void autoBoxingChallenge(){
+        Customer bob = new Customer("Bob S", 1000.0);
+        System.out.println(bob);
+
+        Bank bank = new Bank("AEON");
+        bank.addNewCustomer("Jane A", 500);
+        System.out.println(bank);
+
+        bank.addTransaction("Jane A", 10.25);
+        bank.printStatement("Jane A");
+
+        bank.addTransaction("Bob S", 50);
+        bank.printStatement("Bob S");
     }
 }

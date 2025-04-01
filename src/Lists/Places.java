@@ -1,4 +1,4 @@
-package LinkedList;
+package Lists;
 
 public record Places(String name, int distance){
 
