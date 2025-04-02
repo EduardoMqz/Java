@@ -1,5 +1,4 @@
 import java.util.*;
-
 import Lists.*;
 
 public class VII_List {
@@ -14,6 +13,7 @@ public class VII_List {
         linkedListChallenge();
         autoBoxing();
         autoBoxingChallenge();
+        enumPractice();
 
     }
 
@@ -355,5 +355,36 @@ public class VII_List {
 
         bank.addTransaction("Bob S", 50);
         bank.printStatement("Bob S");
+    }
+
+    public static void enumPractice(){
+        DayOfWeek dayOfWeek = DayOfWeek.MON;
+        System.out.println(dayOfWeek);
+
+        System.out.printf("Name is %s, Ordinal value: %d%n", dayOfWeek.name(), dayOfWeek.ordinal());
+
+        int randomInteger = new Random().nextInt(7);
+        DayOfWeek[] allDays = DayOfWeek.values();
+        System.out.println(allDays[randomInteger]);
+        
+        
+        for (int i = 0; i < 10; i++) {
+            dayOfWeek = allDays[new Random().nextInt(7)];
+            System.out.println(dayOfWeek);
+            if (dayOfWeek == dayOfWeek.FRI) {
+                System.out.println("Found a Friday"); 
+            }
+        }
+
+        int weekDayInteger = dayOfWeek.ordinal() + 1;
+        switch(dayOfWeek){
+            case WED -> System.out.println("Wednesday is day " + weekDayInteger);
+            case SAT -> System.out.println("Saturday is day " + weekDayInteger);
+            default -> System.out.println(dayOfWeek.name().charAt(0) + dayOfWeek.name().toLowerCase() + "day is Day " + weekDayInteger);
+        }
+
+        for (Toppings Toppings : Toppings.values()) {
+            System.out.println(Toppings.name() + " : " + Toppings.getPrice());
+        }
     }
 }
