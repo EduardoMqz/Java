@@ -1,6 +1,6 @@
 package Abstraction;
 
-public class Dog extends Animal {
+public class Dog extends Mammal {
 
     public Dog(String type, String size, double weight){
         super(type, size, weight);
@@ -9,9 +9,9 @@ public class Dog extends Animal {
     @Override
     public void move(String speed) {
        if(speed.equals("fast")){
-        System.out.println("Running!!!");
+        System.out.println(getExplicitType() + " Running!!!");
        } else {
-        System.out.println("Walking!!");
+        System.out.println(getExplicitType() + " Walking!!");
        }
         
     }
@@ -23,5 +23,10 @@ public class Dog extends Animal {
         } else {
             System.out.println("Woof!");
         }
+    }
+
+    @Override
+    public void shewdHair() {
+        System.out.println(getExplicitType() + "shed hair all the time");
     }
 }
