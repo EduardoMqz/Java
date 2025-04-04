@@ -1,20 +1,26 @@
 import java.util.ArrayList;
 
 import Abstraction.Animal;
+import Abstraction.AnimalInterface;
 import Abstraction.ArtObject;
+import Abstraction.Bird;
 import Abstraction.Dog;
 import Abstraction.Fish;
+import Abstraction.FlightEnabled;
 import Abstraction.Furniture;
 import Abstraction.Horse;
+import Abstraction.Jet;
 import Abstraction.Mammal;
 import Abstraction.OrderItem;
 import Abstraction.ProductForSale;
+import Abstraction.Trackable;
 
 public class VIII_Abstraction {
     private static ArrayList<ProductForSale> storeProducts = new ArrayList<>();
     public static void main(String[] args) {
         abstractionImplementation();
         abstractChallenge();
+        interfacesImplementation();
 
     }
 
@@ -84,6 +90,33 @@ public class VIII_Abstraction {
             salesTotal += item.product().getSalesPrice(item.qty());
         }
         System.out.printf("Sales total: $%6.2f %n", salesTotal);
+    }
+
+    public static void interfacesImplementation(){
+        Bird bird = new Bird();
+        AnimalInterface animal = bird;
+        FlightEnabled flier = bird;
+        Trackable trached = bird;
+
+        animal.move(); 
+        //flier.move();
+        //trached.move();
+        flier.takeOff();
+        flier.fly();
+        flier.land();
+
+        inFlight(flier);
+        inFlight(new Jet());
+    }
+
+    public static void inFlight(FlightEnabled flier){
+        System.out.println("-".repeat(10) + "inFlight" + "-".repeat(10));
+        flier.takeOff();
+        flier.fly();
+        if(flier instanceof Trackable tracked){
+            tracked.track();
+        }
+        flier.land();
     }
 
 }
