@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import Abstraction.Animal;
 import Abstraction.AnimalInterface;
@@ -7,6 +9,7 @@ import Abstraction.Bird;
 import Abstraction.Dog;
 import Abstraction.Fish;
 import Abstraction.FlightEnabled;
+import Abstraction.FlightStages;
 import Abstraction.Furniture;
 import Abstraction.Horse;
 import Abstraction.Jet;
@@ -21,6 +24,7 @@ public class VIII_Abstraction {
         abstractionImplementation();
         abstractChallenge();
         interfacesImplementation();
+        interfacesAbstractions();
 
     }
 
@@ -112,11 +116,51 @@ public class VIII_Abstraction {
     public static void inFlight(FlightEnabled flier){
         System.out.println("-".repeat(10) + "inFlight" + "-".repeat(10));
         flier.takeOff();
+        flier.transition(FlightStages.LAUNCH);
         flier.fly();
         if(flier instanceof Trackable tracked){
             tracked.track();
         }
         flier.land();
+    }
+
+    public static void interfacesAbstractions(){
+        Bird bird = new Bird();
+        AnimalInterface animal = bird;
+        FlightEnabled flier = bird;
+        Trackable trached = bird;
+
+        LinkedList<FlightEnabled> fliers = new LinkedList<>();
+        fliers.add(bird);
+        List<FlightEnabled> betterFliers = new LinkedList<>();
+        betterFliers.add(bird);
+
+        triggerFliers(fliers);
+        flyFliers(fliers);
+        landFliers(fliers);
+        triggerFliers(betterFliers);
+        flyFliers(betterFliers);
+        landFliers(betterFliers);
+
+
+    }
+
+    public static void triggerFliers(List<FlightEnabled> fliers){
+        for (var flier : fliers) {
+            flier.takeOff();
+        }
+    }
+
+    public static void flyFliers(List<FlightEnabled> fliers){
+        for (var flier : fliers) {
+            flier.fly();
+        }
+    }
+
+    public static void landFliers(List<FlightEnabled> fliers){
+        for (var flier : fliers) {
+            flier.land();
+        }
     }
 
 }
