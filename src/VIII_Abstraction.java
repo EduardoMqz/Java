@@ -14,8 +14,10 @@ import Abstraction.Furniture;
 import Abstraction.Horse;
 import Abstraction.Jet;
 import Abstraction.Mammal;
+import Abstraction.OrbitEarth;
 import Abstraction.OrderItem;
 import Abstraction.ProductForSale;
+import Abstraction.Satellite;
 import Abstraction.Trackable;
 
 public class VIII_Abstraction {
@@ -25,6 +27,7 @@ public class VIII_Abstraction {
         abstractChallenge();
         interfacesImplementation();
         interfacesAbstractions();
+        some();
 
     }
 
@@ -161,6 +164,11 @@ public class VIII_Abstraction {
         for (var flier : fliers) {
             flier.land();
         }
+    }
+
+    public static void some(){
+        inFlight(new Jet());
+        OrbitEarth.log("Testing "+ new Satellite());
     }
 
 }
